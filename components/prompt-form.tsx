@@ -2,8 +2,9 @@ import { UseChatHelpers } from 'ai/react'
 import * as React from 'react'
 import Textarea from 'react-textarea-autosize'
 
+import Dropdown from "@/components/dropdown";
 import { Button, buttonVariants } from '@/components/ui/button'
-import { IconPlus, IconMessageSend } from '@/components/ui/icons'
+import { IconSun, IconMessageSend } from '@/components/ui/icons'
 import {
   Tooltip,
   TooltipContent,
@@ -18,6 +19,13 @@ export interface PromptProps
   onSubmit: (value: string) => Promise<void>
   isLoading: boolean
 }
+
+const ask1 = "Can you tell me a little about yourself ?"
+const ask2 = "Do you have professional certifications ?"
+const ask3 = "Why should we hire you ?"
+const ask4 = "What strengths do you have ?"
+const ask5 = "Why did you leave your country ?"
+const ask6 = "Can you explain about this robot ?"
 
 export function PromptForm({
   onSubmit,
@@ -48,25 +56,35 @@ export function PromptForm({
       ref={formRef}
     >
       <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={e => {
-                e.preventDefault()
-                router.refresh()
-                router.push('/')
-              }}
-              className={cn(
-                buttonVariants({ size: 'sm', variant: 'outline' }),
-                'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'
-              )}
-            >
-              <IconPlus />
-              <span className="sr-only">New Chat</span>
-            </button>
-          </TooltipTrigger>
-          <TooltipContent>New Chat</TooltipContent>
-        </Tooltip>
+        <div className="absolute left-0 top-4 sm:left-2">
+
+          <Dropdown>
+            <Dropdown.Button>💡</Dropdown.Button>
+            <Dropdown.Menu>
+              <Dropdown.MenuItem onSelect={() => setInput(ask1)}>
+                {ask1}
+              </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask2)}>
+                {ask2}
+              </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask3)}>
+                {ask3}
+              </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask4)}>
+                {ask4}
+              </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask5)}>
+                {ask5}
+              </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask6)}>
+                {ask6}
+              </Dropdown.MenuItem>
+            </Dropdown.Menu>
+          </Dropdown>
+
+
+        </div>
+
         <Textarea
           ref={inputRef}
           tabIndex={0}
@@ -87,7 +105,7 @@ export function PromptForm({
                 size="icon"
                 disabled={isLoading || input === ''}
               >
-                <IconMessageSend color='green'/>
+                <IconMessageSend color='green' />
                 <span className="sr-only">Send message</span>
               </Button>
             </TooltipTrigger>

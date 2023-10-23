@@ -10,9 +10,28 @@ import { CodeBlock } from '@/components/ui/codeblock'
 import { MemoizedReactMarkdown } from '@/components/markdown'
 import { IconOpenAI, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 export interface ChatMessageProps {
   message: Message
+}
+
+const HostAvatar = () => {
+  return (
+    <Avatar className="inline-flex h-[32px] w-[32px] select-none items-center justify-center overflow-hidden rounded align-middle">
+      <AvatarImage
+        className="h-full w-full object-cover"
+        src="./me.jpg"
+        alt="Yantao"
+      />
+      <AvatarFallback
+        className="text-violet11 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
+        delayMs={600}
+      >
+        YT
+      </AvatarFallback>
+    </Avatar>
+  )
 }
 
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
@@ -29,7 +48,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
             : 'bg-primary text-primary-foreground'
         )}
       >
-        {message.role === 'user' ? <IconUser /> : <IconOpenAI />}
+        {message.role === 'user' ? <IconUser /> : <HostAvatar/> }
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedReactMarkdown
