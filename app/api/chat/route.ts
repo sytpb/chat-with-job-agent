@@ -132,7 +132,7 @@ export async function POST(req: Request) {
       },
     ],
   });
-
+  /* @ts-ignore */
   const stream = OpenAIStream(response);
 
   return new StreamingTextResponse(stream);
