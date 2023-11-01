@@ -18,17 +18,17 @@ export interface ChatMessageProps {
 
 const HostAvatar = () => {
   return (
-    <Avatar className="inline-flex h-[32px] w-[32px] select-none items-center justify-center overflow-hidden rounded align-middle">
-      <AvatarImage
+    <Avatar className="inline-flex h-[32px] w-[32px] select-none items-center justify-center overflow-hidden rounded bg-slate-200 align-middle">
+      {/*<AvatarImage
         className="h-full w-full object-cover"
         src="./me.jpg"
         alt="Yantao"
-      />
+      />*/}
       <AvatarFallback
-        className="text-violet11 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
-        delayMs={600}
+        className="leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium text-cyan-500"
+        delayMs={400}
       >
-        YT
+        Yt
       </AvatarFallback>
     </Avatar>
   )

@@ -6,16 +6,16 @@ import { IconArrowRight } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
-    heading: 'Explain technical concepts',
-    message: `What is a "serverless function"?`
+    heading: 'Tell me a little about yourself ?',
+    message: 'Tell me a little about yourself ?'
   },
   {
-    heading: 'Summarize an article',
-    message: 'Summarize the following article for a 2nd grader: \n'
+    heading: 'Which skills do you have ?',
+    message: 'Which skills do you have ?'
   },
   {
-    heading: 'Draft an email',
-    message: `Draft an email to my boss about the following: \n`
+    heading: 'What strengths do you have ?',
+    message: `What strengths do you have ?`
   }
 ]
 
