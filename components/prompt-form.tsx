@@ -58,7 +58,6 @@ export function PromptForm({
     >
       <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
         <div className="absolute left-0 top-4 sm:left-2">
-
           <Dropdown>
             <Dropdown.Button>💡</Dropdown.Button>
             <Dropdown.Menu>
@@ -85,8 +84,6 @@ export function PromptForm({
               </Dropdown.MenuItem>
             </Dropdown.Menu>
           </Dropdown>
-
-
         </div>
 
         <Textarea
