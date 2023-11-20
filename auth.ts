@@ -14,7 +14,7 @@ declare module 'next-auth' {
 export const {
   handlers: { GET, POST },
   auth,
-  CSRF_experimental // will be removed in future
+  CSRF_experimental                     // will be removed in future
 } = NextAuth({
   providers: [GitHub,Google({
     clientId: process.env.GOOGLE_CLIENT_ID,
@@ -22,22 +22,18 @@ export const {
   })],
   callbacks: {
     jwt({ token, profile }) {
-      if (profile?.sub) { // Google profiles have a 'sub' field
+      if (profile?.sub) {               // Google profiles have a 'sub' field
         token.id = String(profile.sub);
         token.image = profile.picture;
-      } else if (profile?.id) { // GitHub profiles have an 'id' field
+      } else if (profile?.id) {         // GitHub profiles have an 'id' field
         token.id = profile?.id;
         token.image = profile.avatar_url;
       }
-      if (profile) {
-
-        console.log({a:profile?.image , b:profile?.picture},profile)
-      }
-      
       return token
     },
     authorized({ auth }) {
-      console.log(auth)
+
+      return true
       return !!auth?.user // this ensures there is a logged in user for -every- request
     }
   },

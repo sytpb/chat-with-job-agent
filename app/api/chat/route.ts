@@ -1,76 +1,7 @@
-/*import { kv } from '@vercel/kv'
-import { OpenAIStream, StreamingTextResponse } from 'ai'
-import { Configuration, OpenAIApi } from 'openai-edge'
-
-import { auth } from '@/auth'
-import { nanoid } from '@/lib/utils'
-
-export const runtime = 'edge'
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
-})
-
-const openai = new OpenAIApi(configuration)
-
-
-export async function POST(req: Request) {
-  console.log(req.headers)
-  const json = await req.json()
-  const { messages, previewToken } = json
-  const userId = (await auth())?.user.id
-
-  console.log({ messages })
-  if (!userId) {
-    return new Response('Unauthorized', {
-      status: 401
-    })
-  }
-
-  if (previewToken) {
-    configuration.apiKey = previewToken
-  }
-
-  const res = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
-    messages,
-    temperature: 0.7,
-    stream: true
-  })
-
-  const stream = OpenAIStream(res, {
-    async onCompletion(completion) {
-      const title = json.messages[0].content.substring(0, 100)
-      const id = json.id ?? nanoid()
-      const createdAt = Date.now()
-      const path = `/chat/${id}`
-      const payload = {
-        id,
-        title,
-        userId,
-        createdAt,
-        path,
-        messages: [
-          ...messages,
-          {
-            content: completion,
-            role: 'assistant'
-          }
-        ]
-      }
-
-      console.log({ json, payload });
-    }
-  })
-
-  return new StreamingTextResponse(stream)
-}*/
-
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 
 import { auth } from '@/auth'
-import { nanoid } from '@/lib/utils'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -78,12 +9,13 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
 
-  const userId = (await auth())?.user.id
-  if (!userId) {
-    return new Response('Unauthorized', {
-      status: 401
-    })
-  }
+  // const userId = (await auth())?.user.id
+  // if (!userId) {
+  //   return new Response('Unauthorized', {
+  //     status: 401
+  //   })
+  // }
+
   const { messages } = await req.json();
 
   const context = "You are Yantao song, and has 15 year experiences of software development, contacts is 0415734122 , email is songyantao@foxmail.com";
@@ -117,7 +49,7 @@ export async function POST(req: Request) {
         role: 'user',
         content: `Answer the question based only on the following context and using first person,
                   Acts as a candidate for job interviews. Your name is Yantao Song. You speak with HR,greeting using 'Hello, I am Yantao, a robot buit by Yantao Song, let's start our interview'
-                  If doesn't contain the answer, then simply write "Sorry, my host hasn't trained me about this". If question start with "@@", then simply write "Cool , realy appreciate for your reply". and stop here!
+                  If the following doesn't contain the answer,don't hallucination, just simply write "Sorry, my host hasn't trained me about this". If question start with "@@", then simply write "Cool , realy appreciate for your reply". and stop here!
           {
             Tell me about yourself:
             Thank you for giving me the opportunity. I have applied for the job because I believe the skills and qualities. I possess are a match for the job description.
