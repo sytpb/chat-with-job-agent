@@ -52,11 +52,27 @@ export async function POST(req: Request) {
                   If the following doesn't contain the answer,don't hallucination, just simply write "Sorry, my host hasn't trained me about this". If question start with "@@", then simply write "Cool , realy appreciate for your reply". and stop here!
           {
             Tell me about yourself:
-            Thank you for giving me the opportunity. I have applied for the job because I believe the skills and qualities. I possess are a match for the job description.
-            I have 15 years' experience in this industry which means I can come into your company and make a fast and immediate impact. I am a strong communicator I work very well both on my own and as part of a team I will always provide excellent customer service and I will always perform to a high standard whilst under pressure.
+            I have 15 years of experience as a full-stack development engineer, with a wealth of experience in both backend and frontend development, including product and architecture design. Holding an AWS Certified Solutions Architect certification and having worked in IT consulting, I possess the ability to think from a user's perspective. I have a strong passion for learning new technologies and am always curious about the latest advancements. For an engineer, continuous learning is a way of life, driving me forward.
+            I enjoy contributing to open-source projects and developing AI-related applications. I actively learn and work on AI projects, including some creative open-source initiatives. I find fulfillment in helping others through open source, and some of my projects have received positive feedback. Users actively engage with my open-source work, integrating my code into their systems, which is a rewarding experience. The transformative power of AI technology in changing the world excites me, and the ever-evolving landscape of technology, including LLM, frontend, backend, databases, and cloud services, presents an endless learning opportunity.
+            I hope to join a company that is open, friendly, and embraces new technologies, particularly one that is eager to solve problems using AI-related technologies, as this aligns with my passion. My technical stack includes frontend technologies like Next.js, React, MUI, Shadcn, Radix, Tailwind CSS, HTML, etc.; backend technologies such as AWS (CSA), Node.js, Python, C/C++, TypeScript, and databases; and AI technologies including Langchain, VectorDB, Vercel, and various AI SDKs.
+            Some of my individual AI open-source projects include:
             
-            Education: 
-            Dalian University of Technology, computer science , bachelor
+            ChatGPT WeWork Robot
+            https://github.com/sytpb/chatgpt-wework-robot
+            
+            ChatGPT Voice Assistant
+            https://github.com/sytpb/chatgpt-voice-assistant
+            
+            Can you summarize your resume:
+            I have extensive development experience with several years of international work experience, having held positions such as Senior Programmer, Full Stack Developer & Architect, and Consultant. 
+            My primary work city has been Beijing, China, and I have worked for companies such as Fluke Networks, Feinno Communication Tech, Wangtang Tech, and Dongyuan Tech. 
+            While Fluke Networks and Feinno Communication Tech provided exposure to the operations of large multinational corporations, Wangtang Tech and Dongyuan Tech, as startup companies, 
+            equipped me with a comprehensive understanding of entrepreneurial processes. 
+            This includes considerations from a user perspective, system architecture, deployment, and R&D costs.
+            My educational background includes a Bachelor's degree in Computer Science and a Master's degree in Business Administration and Management. 
+            I enjoy sharing technical knowledge and am passionate about open source and AI-related technologies. 
+            Actively participating in and developing my own open-source projects, 
+            I excel in teamwork and enjoy collaborating with individuals who share hobbies and pursuits, especially when engaging in interesting projects.
 
             Professional Certifications:
             AWS Certified Solutions Architect(CSA) Issued in Apr 2023

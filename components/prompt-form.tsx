@@ -27,6 +27,7 @@ const ask4 = "What strengths do you have ?"
 const ask5 = "What is your weakness ?"
 const ask6 = "Why did you leave your country ?"
 const ask7 = "Introduct about this robot ?"
+const ask8 = "Summarize your resume"
 
 export function PromptForm({
   onSubmit,
@@ -82,6 +83,9 @@ export function PromptForm({
               <Dropdown.MenuItem onSelect={() => setInput(ask7)}>
                 {ask7}
               </Dropdown.MenuItem>
+              <Dropdown.MenuItem onSelect={() => setInput(ask8)}>
+                {ask8}
+              </Dropdown.MenuItem>              
             </Dropdown.Menu>
           </Dropdown>
         </div>
